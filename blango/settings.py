@@ -71,7 +71,8 @@ class Dev(Configuration):
       'allauth.socialaccount',
       'allauth.socialaccount.providers.google',
       'rest_framework',
-      'rest_framework.authtoken'
+      'rest_framework.authtoken',
+      'drf_yasg'
 
   ]
 
@@ -110,6 +111,15 @@ class Dev(Configuration):
 
   WSGI_APPLICATION = 'blango.wsgi.application'
   
+
+  SWAGGER_SETTINGS = {
+      "SECURITY_DEFINITIONS": {
+          "Token": {"type": "apiKey", "name": "Authorization", "in": "header"},
+          "Basic": {"type": "basic"},
+    }
+  }  
+
+
   #Loggin configuration
 
   LOGGING = {
